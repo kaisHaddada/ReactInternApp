@@ -1,15 +1,19 @@
 import React,{ Component } from "react";
 import axios from "axios";
+
 export default class Register extends Component{
+    
     handleSubmit= e => {
         e.preventDefault();
         const data={
             first_name:this.firstName,
             last_name:this.lastName,
             email:this.email,
+            role:this.role,
             password:this.password,
-            confirm_password:this.confirmPassword
+            password_confirmation:this.confirmPassword
         };
+        console.log(data);
         axios.post('http://localhost:8000/api/auth/register',data).then(
             res=>{
                 console.log(res)
@@ -47,6 +51,12 @@ export default class Register extends Component{
                 <input type="email" className="form-control" placeholder="Email"
                 onChange={e=> this.email=e.target.value}/>
             </div>
+            <div className="form-group">
+                <label>Role</label>
+                <input type="integer" className="form-control" placeholder="Role"
+                  onChange={e=> this.role=e.target.value}/>
+            </div>
+
 
             <div className="form-group">
                 <label>Password</label>

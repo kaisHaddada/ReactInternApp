@@ -10,16 +10,20 @@ function App() {
     return(
         <BrowserRouter>
     <div className="App">
-        <Nav/>
-        <div className="auth-wrapper">
+    <Nav />
+    
+            <div className="auth-wrapper">
             <div className="auth-inner">
+            
+            <main className="form-signin">
                 <Routes>
-                    <Route exact path="/" element={Home}/>
-                    <Route  path="/login" element={Login}/>
-                    <Route  path="/register" element={Register}/>
-
-                
+                <Route path='/' element={<Home /> }/>
+                <Route path='/login' element={<Login />}/>
+                <Route path='/register' element={<Register/>}/>
+ 
                 </Routes>
+                </main>
+
                 <Home/>
             </div>
         </div>
