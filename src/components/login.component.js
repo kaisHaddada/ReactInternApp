@@ -1,6 +1,30 @@
 import React,{ Component } from "react";
+import axios from "axios";
 
-export default class Home extends Component{
+export default class Login extends Component{
+
+
+    handleSubmit= e =>{
+        e.preventDefault();  const data={
+            
+            email:this.email,
+            password:this.password
+        };
+        axios.post('http://localhost:8000/api/auth/login',data).then(
+            res=>{
+                localStorage.setItem('token',res.data.token);
+            }
+        ).catch(
+            err=>{
+                console.log(err);
+            }
+        )
+        
+    
+    };
+    
+
+
     render(){
         return(<form onSubmit={this.handleSubmit}>
 

@@ -1,34 +1,32 @@
 import React from "react";
-import'../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Home from "./components/home.component";
+import Interns from "./components/interns.component";
 import Login from "./components/login.component";
 import Nav from "./components/nav.component";
 import Register from "./components/register.component";
-import{BrowserRouter,Routes,Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { getAllInterns } from "./services/interns";
+import  Container from "@mui/material/Container";
 function App() {
-    return(
+  
+    return (
         <BrowserRouter>
-    <div className="App">
-    <Nav />
-    
-            <div className="auth-wrapper">
-            <div className="auth-inner">
-            
-            <main className="form-signin">
-                <Routes>
-                <Route path='/' element={<Home /> }/>
-                <Route path='/login' element={<Login />}/>
-                <Route path='/register' element={<Register/>}/>
- 
-                </Routes>
-                </main>
+            <div className="App">
+                <Nav />
 
-                <Home/>
+              
+                <div >
+                        
+                            <Routes>
+                                <Route exact path='/' element={<Interns />} />
+                          
+                            </Routes>
+                        </div>
+
+             
             </div>
-        </div>
-    </div>
-    </BrowserRouter>
+        </BrowserRouter>
     );
 }
 export default App;

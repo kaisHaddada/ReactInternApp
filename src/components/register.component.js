@@ -13,8 +13,7 @@ export default class Register extends Component{
             password:this.password,
             password_confirmation:this.confirmPassword
         };
-        console.log(data);
-        axios.post('http://localhost:8000/api/auth/register',data).then(
+        axios.post('api/auth/register',data).then(
             res=>{
                 console.log(res)
             }
